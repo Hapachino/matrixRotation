@@ -4,27 +4,15 @@ function rotate(matrix, direction = 'l') {
   const total = height * width;
   const rotated = [];
 
-  let i = direction === 'r' ? 0 : total - 1;
-
-  while (true) {
+  for (let i = 0; i < total; i++) {
     const y = i / width | 0;
     const x = i % width;
     const newY = direction === 'r' ? x : width - 1 - x;
     const newX = direction === 'r' ? height - 1 - y : y;
-    const value = matrix[y][x];
+    const value = matrix[y][x]; 
 
-    if (!rotated[newY]) rotated.push([]);
+    if (!rotated[newY]) rotated[newY] = [];
     rotated[newY][newX] = value;
-
-    if (direction === 'r') {
-      if (++i >= total) {
-        break;
-      }
-    } else   {
-      if (i-- <= 0) {
-        break;
-      }
-    }
   }
 
   return rotated;
@@ -49,5 +37,5 @@ const rotatedLeft = [
   [0, 3, 6, 9],
 ];
 
-const test = rotate(shape, 'r');
+const test = rotate(shape, 'l');
 test.forEach(x => console.log(x));
