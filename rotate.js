@@ -12,6 +12,7 @@ function rotate(matrix, direction = 'l') {
     const value = matrix[y][x]; 
 
     if (!rotated[newY]) rotated[newY] = [];
+    
     rotated[newY][newX] = value;
   }
 
